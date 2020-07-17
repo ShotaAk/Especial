@@ -9,8 +9,7 @@ ESP32を搭載したマイクロマウスのプログラム
 - Especial (Optional)
   - 私が作成したオリジナルマウスがあると、本プログラムの全機能を動かせます
 - ESP32-WROOM-32D
-- ESP-IDF v3.3.0
-  - 最新バージョンのv4.0.0には対応していません
+- ESP-IDF stable (v4.0.1)
   
 # Installation
 
@@ -18,25 +17,31 @@ ESP32を搭載したマイクロマウスのプログラム
 
 公式マニュアルを参照してください。
 
-[ESP-IDF Get Started | v3.3.0](https://docs.espressif.com/projects/esp-idf/en/release-v3.3/get-started/index.html)
+
+[ESP-IDF Get Started | stable](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/index.html)
 
 ## especialのビルド
 
 ```sh
+# ESP-IDF の環境設定
+$ alias get_idf='. $HOME/esp/esp-idf/export.sh'
+$ get_idf
+
+# Especialのクローン
 cd ~/esp
 git clone https://github.com/ShotaAk/especial
-cd especial
 
 # 走行プログラムのビルド
-make
+cd especial
+$ idf.py build
 ## 書き込み
-make flash
+$ idf.py -p /dev/ttyUSB0 flash monitor
 
 # サンプルプログラムのビルド
-cd examples/0_hello_world 
-make
+$ cd examples/0_hello_world 
+$ idf.py build
 ## 書き込み
-make flash
+$ idf.py -p /dev/ttyUSB0 flash monitor
 ```
 
 # 現在の開発工程
