@@ -1,7 +1,2 @@
-set(COMPONENT_SRCS 
-    "main.cpp"
-    "icm20648.cpp"
-    )
-set(COMPONENT_ADD_INCLUDEDIRS ".")
-
-register_component()
+idf_component_register(SRCS "main.cpp" "icm20648.cpp"
+                    INCLUDE_DIRS ".")
